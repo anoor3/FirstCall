@@ -5,32 +5,32 @@ struct HomeView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
+            VStack(alignment: .leading, spacing: 16) {
                 header
                 content
             }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 32)
+            .padding(.horizontal, 16)
+            .padding(.bottom, 24)
         }
         .background(AppColors.background.ignoresSafeArea())
         .navigationTitle("Browse")
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: Text("Search emergencies"))
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbarBackground(AppColors.background, for: .navigationBar)
     }
 
     private var header: some View {
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: .leading, spacing: 4) {
             Text("FirstCall")
-                .font(AppTypography.title2())
+                .font(AppTypography.header())
                 .foregroundColor(AppColors.subtleText)
                 .accessibilityHidden(true)
             Text("Act fast. Stay calm.")
-                .font(AppTypography.body())
+                .font(AppTypography.footnote())
                 .foregroundColor(AppColors.subtleText)
         }
-        .padding(.top, 8)
+        .padding(.top, 6)
     }
 
     private var content: some View {
@@ -47,7 +47,7 @@ struct HomeView: View {
     }
 
     private var categorySections: some View {
-        VStack(spacing: 28) {
+        VStack(spacing: 20) {
             ForEach(EmergencyCategory.allCases) { category in
                 if let items = EmergencySampleData.grouped[category]?.sorted(by: { $0.title < $1.title }) {
                     CategorySection(category: category, topics: items)
@@ -78,19 +78,19 @@ struct HomeView: View {
     }
 
     private var emptyState: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 10) {
             Image(systemName: "magnifyingglass")
-                .font(.system(size: 36, weight: .semibold))
+                .font(.system(size: 28, weight: .semibold))
                 .foregroundColor(AppColors.subtleText)
             Text("No matches found")
-                .font(AppTypography.title2())
+                .font(AppTypography.header())
                 .foregroundColor(AppColors.strongText)
             Text("Try searching for another emergency topic.")
                 .font(AppTypography.body())
                 .foregroundColor(AppColors.subtleText)
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical, 60)
+        .padding(.vertical, 40)
         .background(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .fill(.surfaceCard)
@@ -111,4 +111,3 @@ struct HomeView: View {
     NavigationStack { HomeView() }
         .preferredColorScheme(.dark)
 }
-

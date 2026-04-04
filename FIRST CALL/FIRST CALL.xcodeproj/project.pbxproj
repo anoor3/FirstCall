@@ -24,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C42A46B92F80D94300815CCB /* FirstCall.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = FirstCall.xcodeproj; sourceTree = "<group>"; };
 		C4F0067B2F803FA8007B63EA /* FIRST CALL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FIRST CALL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F006882F803FAA007B63EA /* FIRST CALLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FIRST CALLTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F006922F803FAA007B63EA /* FIRST CALLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FIRST CALLUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +75,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C42A46BB2F80D94300815CCB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C4F006722F803FA8007B63EA = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +230,10 @@
 				{
 					ProductGroup = C4F0071C2F8042A7007B63EA /* Products */;
 					ProjectRef = C4F007192F8042A7007B63EA /* FirstCall.xcodeproj */;
+				},
+				{
+					ProductGroup = C42A46BB2F80D94300815CCB /* Products */;
+					ProjectRef = C42A46B92F80D94300815CCB /* FirstCall.xcodeproj */;
 				},
 			);
 			projectRoot = "";

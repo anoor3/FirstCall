@@ -18,35 +18,14 @@ struct GuidedModeView: View {
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text(step.title)
-                        .font(AppTypography.title())
-                        .foregroundColor(AppColors.strongText)
-                        .padding(.top, 8)
-
-                    Text(step.detail)
-                        .font(AppTypography.body())
-                        .foregroundColor(AppColors.subtleText)
-
-                    if let warning = step.warning {
-                        tipBox(text: warning, systemImage: "exclamationmark.octagon.fill", tint: topic.accent)
-                    }
-                    if let tip = step.tip {
-                        tipBox(text: tip, systemImage: "lightbulb.fill", tint: topic.accent.opacity(0.9))
-                    }
+                    StepCard(step: step, accent: topic.accent, collapsible: false, initiallyExpanded: true)
                 }
-                .padding(20)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(.surfaceCard)
-                        .padding(.horizontal, 20)
-                )
+                .padding(.horizontal, 20)
                 .padding(.vertical, 20)
                 .transition(.opacity.combined(with: .move(edge: .trailing)))
             }
             .background(AppColors.background.ignoresSafeArea())
-
-            VStack(spacing: 12) {
+            .safeAreaInset(edge: .bottom) {
                 Button(action: next) {
                     PrimaryActionButton(
                         title: isLast ? "Finish Guide" : "Next Step",
@@ -54,13 +33,14 @@ struct GuidedModeView: View {
                         accent: topic.accent,
                         systemImage: isLast ? "checkmark" : "arrow.right"
                     )
+                    .padding(.horizontal, 20)
+                    .padding(.top, 8)
+                    .padding(.bottom, 14)
                 }
-                .accessibilityLabel(isLast ? "Finish guide" : "Next step")
                 .buttonStyle(.plain)
-                .padding(.horizontal, 20)
-                .padding(.bottom, 24)
+                .accessibilityLabel(isLast ? "Finish guide" : "Next step")
+                .background(.ultraThinMaterial.opacity(0.0))
             }
-            .background(AppColors.background.ignoresSafeArea())
         }
         .navigationBarBackButtonHidden(true)
         .onAppear { animateStep = true }
@@ -80,26 +60,10 @@ struct GuidedModeView: View {
         }
     }
 
-    private func tipBox(text: String, systemImage: String, tint: Color) -> some View {
-        HStack(alignment: .top, spacing: 12) {
-            Image(systemName: systemImage)
-                .foregroundStyle(tint)
-                .font(.system(size: 18, weight: .semibold))
-                .accessibilityHidden(true)
-            Text(text)
-                .font(AppTypography.body())
-                .foregroundColor(AppColors.subtleText)
-        }
-        .padding(14)
-        .background(
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(AppColors.cardElevated)
-        )
-    }
+    // tipBox handled inside StepCard; retained only if needed later.
 }
 
 #Preview("Guide") {
     NavigationStack { GuidedModeView(topic: EmergencySampleData.choking) }
         .preferredColorScheme(.dark)
 }
-

@@ -5,16 +5,16 @@ struct CategorySection: View {
     let topics: [EmergencyTopic]
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack(spacing: 10) {
-                Circle().fill(category.accent).frame(width: 8, height: 8)
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 8) {
+                Circle().fill(category.accent).frame(width: 7, height: 7)
                 Text(category.displayName)
-                    .font(AppTypography.header())
+                    .font(AppTypography.bodyStrong())
                     .foregroundColor(AppColors.strongText)
             }
             .padding(.horizontal, 2)
 
-            VStack(spacing: 10) {
+            VStack(spacing: 8) {
                 ForEach(topics) { topic in
                     NavigationLink(value: topic) {
                         EmergencyRow(topic: topic)
@@ -35,4 +35,3 @@ struct CategorySection: View {
         .background(AppColors.background)
         .preferredColorScheme(.dark)
 }
-

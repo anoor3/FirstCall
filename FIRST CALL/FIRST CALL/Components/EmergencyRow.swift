@@ -4,18 +4,18 @@ struct EmergencyRow: View {
     let topic: EmergencyTopic
 
     var body: some View {
-        HStack(spacing: 14) {
+        HStack(spacing: 12) {
             ZStack {
                 RoundedRectangle(cornerRadius: 10, style: .continuous)
                     .fill(topic.accent.opacity(0.18))
                 Image(systemName: topic.symbol)
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(topic.accent)
             }
-            .frame(width: 42, height: 42)
+            .frame(width: 36, height: 36)
             .accessibilityHidden(true)
 
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: 1) {
                 Text(topic.title)
                     .font(AppTypography.bodyStrong())
                     .foregroundColor(AppColors.strongText)
@@ -26,17 +26,17 @@ struct EmergencyRow: View {
             }
             Spacer()
             Image(systemName: "chevron.right")
-                .font(.system(size: 14, weight: .semibold))
+                .font(.system(size: 12, weight: .semibold))
                 .foregroundColor(AppColors.subtleText)
                 .accessibilityHidden(true)
         }
-        .padding(14)
+        .padding(10)
         .background(
-            RoundedRectangle(cornerRadius: 14, style: .continuous)
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
                 .fill(.surfaceCard)
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 14, style: .continuous)
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
                 .stroke(AppColors.separator, lineWidth: 1)
         )
         .contentShape(Rectangle())
@@ -51,4 +51,3 @@ struct EmergencyRow: View {
         .background(AppColors.background)
         .preferredColorScheme(.dark)
 }
-

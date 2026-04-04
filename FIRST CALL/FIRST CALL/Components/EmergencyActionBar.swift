@@ -23,9 +23,7 @@ struct EmergencyActionBar: View {
                     actionButton(label: "Share Location", system: "location.fill", bg: AppColors.cardElevated)
                 }
                 .accessibilityLabel("Share location")
-                .sheet(isPresented: $showLocationSheet) {
-                    LocationSheetView()
-                }
+                .sheet(isPresented: $showLocationSheet) { LocationSheetView() }
             }
         }
     }
@@ -61,62 +59,9 @@ struct EmergencyActionBar: View {
     }
 }
 
-private struct LocationSheetView: View {
-    // Placeholder UI to enable future CoreLocation integration.
-    // For now, shows mock coordinates and a simple share option.
-    @Environment(\.dismiss) private var dismiss
-
-    var body: some View {
-        NavigationStack {
-            VStack(spacing: 16) {
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(AppColors.card)
-                    .frame(height: 160)
-                    .overlay(
-                        VStack(spacing: 8) {
-                            Image(systemName: "mappin.and.ellipse")
-                                .font(.system(size: 28, weight: .semibold))
-                                .foregroundColor(AppColors.poisonGreen)
-                            Text("Mock Location")
-                                .font(AppTypography.bodyStrong())
-                                .foregroundColor(AppColors.strongText)
-                            Text("123 Main St, Springfield")
-                                .font(AppTypography.body())
-                                .foregroundColor(AppColors.subtleText)
-                            Text("Lat 37.7749, Lon -122.4194")
-                                .font(AppTypography.footnote())
-                                .foregroundColor(AppColors.subtleText)
-                        }
-                    )
-                    .padding(.horizontal, 20)
-
-                Button(action: { dismiss() }) {
-                    PrimaryActionButton(title: "Done", accent: AppColors.poisonGreen, systemImage: "checkmark")
-                }
-                .buttonStyle(.plain)
-                .padding(.horizontal, 20)
-
-                Spacer()
-            }
-            .padding(.top, 24)
-            .background(AppColors.background.ignoresSafeArea())
-            .navigationTitle("Location")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Close") { dismiss() }
-                        .foregroundColor(AppColors.strongText)
-                }
-            }
-        }
-        .preferredColorScheme(.dark)
-    }
-}
-
 #Preview("Actions") {
     EmergencyActionBar(accent: AppColors.cardiacRed)
         .padding()
         .background(AppColors.background)
         .preferredColorScheme(.dark)
 }
-

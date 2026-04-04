@@ -26,6 +26,8 @@
     <dict/>
     <key>UIUserInterfaceStyle</key>
     <string>Dark</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Your location is used to share accurate coordinates with responders.</string>
     <key>UISupportedInterfaceOrientations</key>
     <array>
         <string>UIInterfaceOrientationPortrait</string>

@@ -3,7 +3,7 @@ import SwiftUI
 struct SymptomSection: View {
     let symptoms: [String]
     var accent: Color
-    @State private var expanded: Bool = true
+    @State private var expanded: Bool = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -53,4 +53,3 @@ struct SymptomSection: View {
         .background(AppColors.background)
         .preferredColorScheme(.dark)
 }
-
