@@ -84,7 +84,3 @@ Tip: There is also a `FIRST CALL/FIRST CALL.xcodeproj` that corresponds to an al
 ## Notes
 
 - The repository contains two similarly named project folders. The `FIRST CALL/FirstCall.xcodeproj` project with sources in `FIRST CALL/FirstCall` is the main path described above.
-
-## License
-
-If you plan to share this publicly add a license file. For private projects this section can be removed.
