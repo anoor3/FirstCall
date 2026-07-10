@@ -2,6 +2,9 @@
 
 FirstCall is a SwiftUI iOS app that helps people act quickly and calmly during common emergencies. It presents clear steps, a guided mode that walks users through actions one by one, and quick actions like calling emergency services.
 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Abdullah%20Noor-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdullah-noor1/)
+[![Email](https://img.shields.io/badge/Email-abdullahnoorllc%40gmail.com-EA4335?logo=gmail&logoColor=white)](mailto:abdullahnoorllc@gmail.com)
+
 ## Features
 
 - Browse emergency topics by category with a calm dark UI
