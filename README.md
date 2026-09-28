@@ -1,3 +1,12 @@
+```
+  ███████╗██╗██████╗ ███████╗████████╗     ██████╗ █████╗ ██╗     ██╗
+  ██╔════╝██║██╔══██╗██╔════╝╚══██╔══╝    ██╔════╝██╔══██╗██║     ██║
+  █████╗  ██║██████╔╝███████╗   ██║       ██║     ███████║██║     ██║
+  ██╔══╝  ██║██╔══██╗╚════██║   ██║       ██║     ██╔══██║██║     ██║
+  ██║     ██║██║  ██║███████║   ██║       ╚██████╗██║  ██║███████╗███████╗
+  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝        ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝
+```
+
 # FirstCall
 
 FirstCall is a SwiftUI iOS app that helps people act quickly and calmly during common emergencies. It presents clear steps, a guided mode that walks users through actions one by one, and quick actions like calling emergency services.
